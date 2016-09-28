@@ -1,0 +1,44 @@
+locahost:78945/Cliente/Listar
+
+ClienteController
+	Listar -> View() ->
+		Views/Cliente/Listar.cshtml
+
+EntityFramework (ORM)
+	- Instalar o EF
+	- Criar a classe de Contexto (DbContext)
+	- Web.config -> configurar a string de conexão
+	
+Atualizar uma entidade
+	- Escolher a entidade que será atualizada (Botão)
+	- Aciona o Action Atualizar que recebe o id
+		- Abrir a tela com o formulário preenchido
+		- Buscar as informações no banco e passar para a view
+	- Criar a View para exibir um formulário preenchido	
+	- Criar a Action Atualizar POST para receber as informações e atualizar no banco
+		ERRO!!! PQ? Falta o ID em um campo oculto no formulário
+	-SUCESSO! =D
+
+Excluir uma entidade
+	- Escolher a entidade que será removida
+	- Acionar um Modal
+		- Adicionar um formulário -> alterar a Action no BeginForm
+			- Adicionar um campo oculto para armazenar o id
+			- Alterar o onclick do botão que abre o modal para passar o id da entidade escolhida para o campo oculto do formulário do modal
+		- Aciona o Action Excluir que recebe o id
+			- Busca as informações no Banco e Remover a entidade;
+			- Mensagem e retornar para a listagem
+
+Adicionar um formulário para buscar por nome:
+	- Criar o formulário de busca
+		- Campo para o nome, Botão
+	- Aciona uma action no controller
+		- Faz o filtro e manda a lista atualizada para a view
+	
+	
+	
+	
+	
+	
+	
+	

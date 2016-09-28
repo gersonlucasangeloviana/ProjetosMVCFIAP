@@ -1,0 +1,35 @@
+﻿@model Fiap.Apostila06.MVC.Web.Models.Medicamento
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+
+@Churros.Mensagem(TempData["mensagem"] as string)
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nome)
+        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Valor)
+        @Html.TextBoxFor(m => m.Valor, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(me => me.DataValidade)
+        @Html.TextBoxFor(me => me.DataValidade, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Tarja)
+        @Html.TextBoxFor(m => m.Tarja, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.CheckBoxFor(m => m.Generico)
+        @Html.LabelFor(m => m.Generico)
+    </div>
+    <div class="form-group">
+        @Churros.Botao("Cadastrar")
+    </div>
+}

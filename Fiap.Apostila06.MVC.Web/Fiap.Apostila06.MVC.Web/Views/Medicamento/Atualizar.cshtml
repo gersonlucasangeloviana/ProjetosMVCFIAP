@@ -1,0 +1,35 @@
+﻿@model Fiap.Apostila06.MVC.Web.Models.Medicamento
+@{
+    ViewBag.Title = "Atualizar";
+}
+
+<h2>Atualizar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(c => c.MedicamentoId)
+    <div class="form-group">
+        @Html.LabelFor(c => c.Nome)
+        @Html.TextBoxFor(c => c.Nome, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Tarja)
+        @Html.TextBoxFor(c => c.Tarja, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Valor)
+        @Html.TextBoxFor(c => c.Valor, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.DataValidade)
+        @Html.TextBoxFor(c => c.DataValidade, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.CheckBoxFor(c => c.Generico)
+        @Html.LabelFor(c => c.Generico)
+    </div>
+    <div>
+        @Churros.Botao("Atualizar")
+    </div>
+}
+

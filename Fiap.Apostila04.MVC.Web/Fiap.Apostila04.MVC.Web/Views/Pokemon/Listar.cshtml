@@ -1,0 +1,27 @@
+﻿@model List<Fiap.Apostila04.MVC.Web.Models.Pokemon>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+<table class="table">
+    <tr>
+        <th>Nome</th>
+        <th>Data</th>
+        <th>CP</th>
+        <th>Preço</th>
+        <th>Raro</th>
+    </tr>
+    @foreach (var item in @Model)
+    {
+        <tr>
+            <td>@item.Nome</td>
+            <td>@item.DataCaptura</td>
+            <td>@item.Cp</td>
+            <td>@item.Preco</td>
+            <td>@item.Raro</td>
+        </tr>
+    }
+</table>
+

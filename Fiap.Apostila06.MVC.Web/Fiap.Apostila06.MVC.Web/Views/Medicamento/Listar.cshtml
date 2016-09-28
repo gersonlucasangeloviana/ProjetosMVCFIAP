@@ -1,0 +1,71 @@
+﻿@model List<Fiap.Apostila06.MVC.Web.Models.Medicamento>
+@{
+    ViewBag.Title = "Estoque";
+}
+
+<h2>Estoque</h2>
+
+@Churros.Mensagem((string) TempData["msg"])
+
+<!--Formulário para a busca-->
+@using (Html.BeginForm("Filtrar", "Medicamento", 
+                FormMethod.Get, new { @class = "form-inline" }))
+{
+    <input type="text" name="nomeBusca" 
+           placeholder="Digite um nome" class="form-control"/>
+    @Churros.Botao("Buscar")
+}
+
+<br /><!--gambiarra.. não utilize assim-->
+
+<table class="table">
+    <tr>
+        <th>Nome</th>
+        <th>Tarja</th>
+        <th>Data Validade</th>
+        <th>Valor</th>
+        <th>Genérico</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Nome</td>
+            <td>@item.Tarja</td>
+            <td>@item.DataValidade</td>
+            <td>@item.Valor</td>
+            <td>@(item.Generico?"Sim":"Não")</td>
+            <td>
+                @Html.ActionLink("Editar","Atualizar", new { id = @item.MedicamentoId }, new { @class = "btn btn-primary btn-xs" })
+                <!--Id do campo oculto do formulário do Modal-->
+                <button onclick="medicamentoId.value = @item.MedicamentoId" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal">
+                    Excluir
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Confirmação</h4>
+            </div>
+            <div class="modal-body">
+                Você realmente deseja excluir esse medicamento?
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Excluir", "Medicamento"))
+                { 
+                    <input type="hidden" id="medicamentoId" name="id" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Excluir</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

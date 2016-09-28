@@ -1,0 +1,39 @@
+﻿@model Fiap.Apostila04.MVC.Web.Models.Pokemon
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["msg"]
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(p => p.Nome)
+        @Html.TextBoxFor(abc => abc.Nome, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.Cp)
+        @Html.TextBoxFor(p => p.Cp, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.DataCaptura)
+        @Html.TextBoxFor(p => p.DataCaptura, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.Preco)
+        @Html.TextBoxFor(p => p.Preco, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.CheckBoxFor(p => p.Raro)
+        @Html.LabelFor(p => p.Raro)
+    </div>
+    <div>
+        <input type="submit" value="Salvar" class="btn btn-success" />
+    </div>
+}

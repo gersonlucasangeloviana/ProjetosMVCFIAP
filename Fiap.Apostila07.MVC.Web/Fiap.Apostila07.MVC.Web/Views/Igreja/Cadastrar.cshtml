@@ -1,0 +1,38 @@
+﻿@model Fiap.Apostila07.MVC.Web.Models.Igreja
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastro de Igreja</h2>
+
+@TempData["msg"]
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Igreja</legend>
+        <div class="form-group">
+            @Html.LabelFor(i => i.Nome)
+            @Html.TextBoxFor(i => i.Nome, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(i => i.Endereco)
+            @Html.TextBoxFor(i => i.Endereco, new { @class = "form-control" })
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Padre</legend>
+        <div class="form-group">
+            @Html.LabelFor(i => i.Padre.Nome)
+            @Html.TextBoxFor(i => i.Padre.Nome, new { @class = "form-control"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(i => i.Padre.DataBatismo)
+            @Html.TextBoxFor(i => i.Padre.DataBatismo, new { @class = "form-control"})
+        </div>
+    </fieldset>
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+    </div>
+}
+

@@ -1,0 +1,36 @@
+﻿@model List<Fiap.Apostila07.MVC.Web.Models.Missa>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Lista de Missas</h2>
+
+<!--Formulário de Busca
+    Action, Controller, Método HTTP, css
+-->
+@using (Html.BeginForm("Buscar","Missa",
+    FormMethod.Get, new { @class = "form-inline" }))
+{
+                    <!-- Name do campo-->
+    @Html.DropDownList("codigoIgreja", 
+        ViewBag.opcoes as SelectList,
+        new { @class = "form-control" })
+    <input type="submit" value="Buscar" class="btn btn-primary" />
+}
+<br />
+<table class="table">
+    <tr>
+        <th>Passagem</th>
+        <th>Data</th>
+        <th>Igreja</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Passagem</td>
+            <td>@item.Data</td>
+            <td>@item.Igreja.Nome</td>
+        </tr>
+    }
+</table>
+

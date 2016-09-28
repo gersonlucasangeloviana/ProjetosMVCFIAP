@@ -1,0 +1,25 @@
+﻿@model List<Fiap.Apostila07.MVC.Web.Models.Igreja>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Igrejas</h2>
+
+<table class="table">
+    <tr>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Padre</th>
+        <th>Data de Batismo</th>
+    </tr>
+    @foreach (var igreja in Model)
+    {
+        <tr>
+            <td>@igreja.Nome</td>
+            <td>@igreja.Endereco</td>
+            <td>@igreja.Padre.Nome</td>
+            <td>@igreja.Padre.DataBatismo</td>
+        </tr>
+    }
+</table>
+
