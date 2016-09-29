@@ -1,0 +1,29 @@
+﻿@model Fiap.Apostila08.MVC.Web.Models.Carro
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar Carro</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(c => c.CarroId)
+    <div class="form-group">
+        @Html.LabelFor(c => c.Modelo)
+        @Html.TextBoxFor(c => c.Modelo, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Ano)
+        @Html.TextBoxFor(c => c.Ano, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Marca)
+        @Html.DropDownListFor(c => c.MarcaId,
+             ViewBag.marcas as SelectList,"Selecione",
+             new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Atualizar" class="btn btn-primary" />
+    </div>
+}
+

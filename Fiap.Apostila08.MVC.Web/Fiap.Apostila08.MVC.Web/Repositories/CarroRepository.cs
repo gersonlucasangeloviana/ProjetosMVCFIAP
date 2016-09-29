@@ -40,7 +40,7 @@ namespace Fiap.Apostila08.MVC.Web.Repositories
 
         public List<Carro> Listar()
         {
-            return _context.Carros.ToList();
+            return _context.Carros.Include("Marca").ToList();
         }
 
         public void Remover(int id)

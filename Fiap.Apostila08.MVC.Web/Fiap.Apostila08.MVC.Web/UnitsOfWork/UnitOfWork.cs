@@ -11,6 +11,20 @@ namespace Fiap.Apostila08.MVC.Web.UnitsOfWork
     {
         private FiapMotorsContext _context = new FiapMotorsContext();
 
+        private IMarcaRepository _marcaRepository;
+
+        public IMarcaRepository MarcaRepository
+        {
+            get
+            {
+                if (_marcaRepository == null)
+                {
+                    _marcaRepository = new MarcaRepository(_context);
+                }
+                return _marcaRepository;
+            }
+        }
+
         //propfull -> tab tab
         private ICarroRepository _carroRepository;
 

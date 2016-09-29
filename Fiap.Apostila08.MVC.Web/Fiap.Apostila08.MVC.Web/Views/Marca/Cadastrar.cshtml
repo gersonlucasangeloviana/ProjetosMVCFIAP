@@ -1,0 +1,24 @@
+﻿@model Fiap.Apostila08.MVC.Web.Models.Marca
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastro de Marca</h2>
+
+@using (Html.BeginForm())
+{
+    if (TempData["msg"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["msg"]
+        </div>
+    }
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nome)
+        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+    </div>
+}
+
