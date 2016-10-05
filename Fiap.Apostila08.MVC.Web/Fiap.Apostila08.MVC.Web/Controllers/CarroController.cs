@@ -24,10 +24,18 @@ namespace Fiap.Apostila08.MVC.Web.Controllers
         [HttpPost]
         public ActionResult Editar(Carro carro)
         {
-            _unit.CarroRepository.Atualizar(carro);
-            _unit.Salvar();
-            TempData["msg"] = "Carro atualizado";
-            return RedirectToAction("Listar");
+            if (ModelState.IsValid)
+            {
+                _unit.CarroRepository.Atualizar(carro);
+                _unit.Salvar();
+                TempData["msg"] = "Carro atualizado";
+                return RedirectToAction("Listar");
+            }
+            else
+            {
+                CarregarComboMarcas();
+                return View(carro);
+            }
         }
 
         [HttpGet] //Abre a tela com o formulário preenchido
@@ -66,10 +74,19 @@ namespace Fiap.Apostila08.MVC.Web.Controllers
         [HttpPost]
         public ActionResult Cadastrar(Carro carro)
         {
-            _unit.CarroRepository.Cadastrar(carro);
-            _unit.Salvar();
-            TempData["msg"] = "Carro cadastrado";
-            return RedirectToAction("Cadastrar");
+            //Validação dos campos
+            if (ModelState.IsValid)
+            {
+                _unit.CarroRepository.Cadastrar(carro);
+                _unit.Salvar();
+                TempData["msg"] = "Carro cadastrado";
+                return RedirectToAction("Cadastrar");
+            }
+            else
+            {
+                CarregarComboMarcas();
+                return View(carro);
+            }
         }
 
         protected override void Dispose(bool disposing)

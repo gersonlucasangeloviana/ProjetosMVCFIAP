@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Fiap.Apostila08.MVC.Web.DataAccess;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +15,11 @@ namespace Fiap.Apostila08.MVC.Web
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //Configuração para criar a base quando as 
+            //entidades forem alteradas
+            Database.SetInitializer(
+                new DropCreateDatabaseIfModelChanges<FiapMotorsContext>());
+
         }
     }
 }

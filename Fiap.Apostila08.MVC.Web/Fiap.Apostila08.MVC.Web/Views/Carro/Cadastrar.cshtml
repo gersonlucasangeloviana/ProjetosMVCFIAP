@@ -13,13 +13,16 @@
             @TempData["msg"]
         </div>
     }
+    @Html.ValidationSummary()
     <div class="form-group">
         @Html.LabelFor(c => c.Modelo)
         @Html.TextBoxFor(c => c.Modelo, new { @class = "form-control"})
+        @Html.ValidationMessageFor(c => c.Modelo)
     </div>
     <div class="form-group">
         @Html.LabelFor(c => c.Ano)
         @Html.TextBoxFor(c => c.Ano, new { @class = "form-control"})
+        @Html.ValidationMessageFor(c => c.Ano)
     </div>
     <div class="form-group">
         @Html.LabelFor(c => c.Marca)
