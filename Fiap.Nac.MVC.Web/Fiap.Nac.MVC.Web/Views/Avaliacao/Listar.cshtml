@@ -1,0 +1,26 @@
+﻿@model List<Fiap.Nac.MVC.Web.Models.Avaliacao>
+@{
+
+    ViewBag.Title = "Listar";
+}
+
+<h2>Lista de Avaliações</h2>
+
+<table class="table">
+    <tr>
+        <th>Tema</th>
+        <th>Data</th>
+        <th>Sistema</th>
+        <th>Disciplina</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Tema</td>
+            <td>@item.Data</td>
+            <td>@(item.Sistema?"Sim":"Não")</td>
+            <td>@item.Disciplina.Nome</td>
+        </tr>
+    }
+</table>
+

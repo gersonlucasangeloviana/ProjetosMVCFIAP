@@ -1,0 +1,31 @@
+﻿@model Fiap.Revisao.MVC.Web.Models.Livro
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["msg"]
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(e => e.Titulo)
+        @Html.TextBoxFor(e => e.Titulo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Editora)
+        @Html.DropDownListFor(e => e.EditoraId ,
+            ViewBag.opcoes as SelectList,
+            new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+    </div>
+}
+
